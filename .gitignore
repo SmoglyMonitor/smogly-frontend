@@ -1,6 +1,9 @@
 ###
 docker-compose.yml
 
+.config
+package-lock.json
+
 .idea
 build
 ### Node template

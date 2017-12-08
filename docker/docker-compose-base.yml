@@ -1,11 +1,12 @@
 version: '2'
 services:
   base:
-    build: ../
     volumes:
       - ../:/code
     logging:
-        driver: "json-file"
         options:
-          max-size: "25m"
-          max-file: "1"
+          max-size: "1m"
+  web:
+    extends:
+      service: base
+    build: ./

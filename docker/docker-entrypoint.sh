@@ -1,23 +1,22 @@
-#!/bin/sh
-cd /code
+#!/bin/bash
 
-# for concurrent runs of more than one service using this container
-# eg. default server and coverage?
-if [ "$1" != 'start' ]; then
-    echo "Waiting (15s) to be sure node_modules are copied localy..."
-    sleep 15
+# if node GID and UID is not ${DEFAULT_UID} and ${DEFAULT_GID}
+# set proper GID and UID
+usermod --shell /bin/bash node
+
+CHECK_FOR_DEFAULT_UID=`id -u node`
+if [ "${CHECK_FOR_DEFAULT_UID}" != "${DEFAULT_UID}" ]; then
+    usermod  --uid ${DEFAULT_UID} node
+fi
+CHECK_FOR_DEFAULT_GID=`id -u node`
+if [ "${CHECK_FOR_DEFAULT_GID}" != "${DEFAULT_GID}" ]; then
+    groupmod --gid ${DEFAULT_GID} node
 fi
 
-if [ "$1" = 'start' ]; then
-    # copy node_modules localy
-    if [ ! -d "./node_modules" ]; then
-        cp /install/node_modules ./ -R
-    fi
-    # clear and update node_modules on each start
-    npm prune
-    npm install
-    # change owner on each start
-    find . -user root -print0 | xargs -0 chown ${DEFAULT_UID}:${DEFAULT_GID}
+if [ "$1" = 'npm' ]; then
+    # clear and update node_modules on each npm command
+    sudo -EHu node npm prune
+    sudo -EHu node npm install
 fi
 
-exec npm run "$1"
+exec sudo -EHu node "$@"

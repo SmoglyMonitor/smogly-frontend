@@ -1,11 +1,11 @@
-# EnviroMonitorFrontend
-
-Frontend SPA for EnviroMonitor 
-
 [![Build Status](https://travis-ci.org/EnviroMonitor/EnviroMonitorFrontend.svg?branch=master)](https://travis-ci.org/EnviroMonitor/EnviroMonitorFrontend)
-[![Coverage Status](https://coveralls.io/repos/github/EnviroMonitor/EnviroMonitorFrontend/badge.svg?branch=master)](https://coveralls.io/github/EnviroMonitor/EnviroMonitorFrontend)
+[![Coverage Status](https://coveralls.io/repos/github/SmoglyAirMonitor/smogly-frontend/badge.svg?branch=master)](https://coveralls.io/github/SmoglyAirMonitor/smogly-frontend?branch=master)
 
-## Useful commands
+# smogly-frontend
+
+Frontend for SmoglyAirMonitor project. Powered by react
+
+# Useful commands
 
 - ``npm run build`` - build files to be used for production
 - ``npm run start`` - run a test server with hot reload on localhost:8080
@@ -13,28 +13,48 @@ Frontend SPA for EnviroMonitor
 - ``npm run test:watch`` - run tests continuously
 - ``npm run coverage`` - run coverage report
 
-## Docker (DEV)
+# Development with Docker
 
-- install docker and docker-compose
-- ``cp ./docker/docker-compose.yml ./docker-compose.yml`` - prepare Your docker-compose.yml file, default is to run 
-webpack-dev-server with hot reloading (translate to container ``npm run start``), it should be enought to develop 
-project
-- ``docker-compose up`` - start server container with log output, ``CTRL+c`` to stop
-- check ``http://localhost:8080``
-- each change in the code should be reflected automatically in Your browser
-- to run one off ``package.json`` configured command just do ``docker-compose run --rm server YOUR_CMD``
-- to get into shell of container to debug ``docker-compose run --rm --entrypoint=/bin/sh server``
-- executing container **will automatically prune and install** new dependencies from ``packages.json`` rebuilding is not 
-needed
-- to change ENV variables check [this](https://docs.docker.com/compose/compose-file/#/environment) docker-compose 
-manual + defaults set in `Dockerfile`
-- to add more concurrent execution of ``packages.json`` commands just add entry in Your copied docker-compose.yml 
+## To start development:
+1. install [docker](https://docs.docker.com/#/components) and [docker-compose](https://docs.docker.com/compose/install/)
+2. copy docker-compose.yml to root project dir to have Your own local copy
+
+    ```bash
+    cp ./docker/docker-compose.yml ./docker-compose.yml
+    ```
+
+## To run project:
+1. `docker-compose up` - start webpack-dev-server with hot reloading and log output, you need to wait a bit for 
+package.json requirements to download
+2. point your browser to `localhost:8081`
+3. press `CTRL+C` to stop
+
+## Notes:
+1. Each change in the code should be reflected automatically in Your browser.
+2. To run one off `package.json` configured command just do `docker-compose run --rm web npm run YOUR_CMD`.
+3. To get into shell of container to debug `docker-compose run --rm web bash`.
+4. Executing container **will automatically prune and install** new dependencies from ``packages.json`` rebuilding 
+is not needed.
+5. To change ENV variables check [this](https://docs.docker.com/compose/compose-file/#/environment) docker-compose 
+manual + defaults set in `Dockerfile`.
+6. To add more concurrent execution of ``packages.json`` commands just add entry in Your copied docker-compose.yml 
 like so:
 
 ```
   builder:
     extends:
       file: docker-compose-base.yml
-      service: base
-    command: "build:watch"
+      service: web
+    command: "npm run build:watch"
+```
+7. We recommend setting up bash aliases to **increase productivity**:
+
+```bash
+#!/bin/bash
+dcclear() {
+    docker images -qf dangling=true | xargs -r docker rmi
+    docker volume ls -qf dangling=true | xargs -r docker volume rm
+}
+alias dc='docker-compose'
+alias dcrun='docker-compose run --rm'
 ```

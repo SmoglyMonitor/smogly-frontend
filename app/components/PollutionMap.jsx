@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -95,10 +96,10 @@ export class PollutionMap extends React.Component {
     }
 }
 PollutionMap.propTypes = {
-    isFetching: React.PropTypes.bool.isRequired,
-    data: React.PropTypes.object.isRequired,
-    invalidateAndFetchData: React.PropTypes.func.isRequired,
-    mapSpec: React.PropTypes.node,
+    isFetching: PropTypes.bool.isRequired,
+    data: PropTypes.object.isRequired,
+    invalidateAndFetchData: PropTypes.func.isRequired,
+    mapSpec: PropTypes.node,
 };
 
 const mapStateToProps = (state) => ({

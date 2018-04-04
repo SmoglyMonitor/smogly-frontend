@@ -1,7 +1,12 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
 import DataHolder from '../../app/components/DataHolder';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe('<DataHolder/>', () => {
     let wrapper;

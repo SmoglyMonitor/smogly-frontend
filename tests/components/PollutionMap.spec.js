@@ -168,7 +168,7 @@ describe('<PollutionMap/>', () => {
 
     describe('Tesing geolocation', () => {
 
-        it('properly changing location', () => {
+        it('properly changing location', (done) => {
 
             geolocate.use();
 

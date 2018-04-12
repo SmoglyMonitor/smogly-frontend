@@ -165,34 +165,4 @@ describe('<PollutionMap/>', () => {
             window.navigator.geolocation = undefined;
         });
     });
-
-    describe('Tesing geolocation', () => {
-
-        it('properly changing location', () => {
-
-            geolocate.use();
-
-            wrapper = shallow(<ConnectedPollutionMap/>, {
-                context: {
-                    store
-                }
-            });
-
-            geolocate.send({
-                latitude: 52.129,
-                longitude: 21.111,
-            });
-
-            setTimeout( function () {
-                try {
-                    expect(wrapper.dive().state()).to.deep.equal({mapCenter: [52.129, 21.111]});
-                    done();
-                } catch( e ) {
-                    done( e );
-                }
-            }, 100 );
-
-            geolocate.restore()
-        });
-    });
 });

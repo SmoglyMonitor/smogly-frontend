@@ -31,8 +31,6 @@ export class PollutionMap extends React.Component {
             navigator.geolocation.getCurrentPosition((position) => {
                 this.updatePosition(position.coords.latitude, position.coords.longitude);
             });
-        } else {
-            console.error('no navigator.geolocation!')
         }
         // TODO - some geolocation warning? Or a fallback of some kind?
     }

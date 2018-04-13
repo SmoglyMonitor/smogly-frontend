@@ -7,8 +7,6 @@ import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import {noDataIcon, okIcon, warningIcon, errorIcon} from '../helpers/mapMarkers';
 import { invalidateAndFetchData } from '../actions';
 
-
-
 export class PollutionMap extends React.Component {
 
     constructor (props) {

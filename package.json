@@ -1,7 +1,7 @@
 {
-  "name": "enviro-monitor-frontend",
+  "name": "smogly-frontend",
   "version": "0.0.0",
-  "description": "Frontend app for EnviroMonitor project",
+  "description": "Frontend app for SmoglyAirMonitor project",
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/testSetup.js tests/*",
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/EnviroMonitor/EnviroMonitorFrontend.git"
+    "url": "git+https://github.com/SmoglyAirMonitor/smogly-frontend.git"
   },
   "author": "",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/EnviroMonitor/EnviroMonitorFrontend/issues"
+    "url": "https://github.com/SmoglyAirMonitor/smogly-frontend/issues"
   },
-  "homepage": "https://github.com/EnviroMonitor/EnviroMonitorFrontend#readme",
+  "homepage": "https://github.com/SmoglyAirMonitor/smogly-frontend#readme",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-loader": "^6.2.8",

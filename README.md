@@ -1,9 +1,9 @@
-[![Build Status](https://travis-ci.org/EnviroMonitor/EnviroMonitorFrontend.svg?branch=master)](https://travis-ci.org/EnviroMonitor/EnviroMonitorFrontend)
+[![Build Status](https://travis-ci.org/SmoglyAirMonitor/smogly-frontend.svg?branch=master)](https://travis-ci.org/SmoglyAirMonitor/smogly-frontend)
 [![Coverage Status](https://coveralls.io/repos/github/SmoglyAirMonitor/smogly-frontend/badge.svg?branch=master)](https://coveralls.io/github/SmoglyAirMonitor/smogly-frontend?branch=master)
 
 # smogly-frontend
 
-Frontend for SmoglyAirMonitor project. Powered by react
+Frontend for SmoglyAirMonitor project. Powered by React
 
 # Useful commands
 

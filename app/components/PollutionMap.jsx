@@ -83,13 +83,16 @@ export class PollutionMap extends React.Component {
         const markers = this.extractMarkers(data);
 
         return (
-            <Map center={mapCenter}
-                 ref='map'
-                 onMoveend={this.handleMoveEnd}
-                 zoom={zoom}>
+            <Map
+                center={mapCenter}
+                ref='map'
+                onMoveend={this.handleMoveEnd}
+                zoom={zoom}
+            >
                 {this.props.mapSpec}
                 {markers}
-            </Map>)
+            </Map>
+        )
     }
 }
 PollutionMap.propTypes = {

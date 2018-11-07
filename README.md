@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/SmoglyAirMonitor/smogly-frontend.svg?branch=master)](https://travis-ci.org/SmoglyAirMonitor/smogly-frontend)
+[![Build Status](https://travis-ci.org/SmoglyMonitor/smogly-frontend.svg?branch=master)](https://travis-ci.org/SmoglyMonitor/smogly-frontend)
 [![Coverage Status](https://coveralls.io/repos/github/SmoglyAirMonitor/smogly-frontend/badge.svg?branch=master)](https://coveralls.io/github/SmoglyAirMonitor/smogly-frontend?branch=master)
 
 # smogly-frontend

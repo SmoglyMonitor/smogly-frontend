@@ -5,10 +5,10 @@ import DataHolder from './components/DataHolder';
 class Root extends React.Component {
     render () {
         return (
-            <div className="root">
+            <React.Fragment>
                 <PollutionMap/>
-                <DataHolder/>
-            </div>
+                {/* <DataHolder/> */}
+            </React.Fragment>
         );
     }
 }
